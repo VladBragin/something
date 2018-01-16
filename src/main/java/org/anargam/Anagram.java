@@ -42,9 +42,9 @@ public class Anagram {
     }
 
     private static class WordHash {
-        static final char FIRST_CHAR = 'а';
-        static final char[] REPLACING_PAIR = {'ё', 'е'};
-        static final int ALPHABET_SIZE = 33;
+        private static final char FIRST_CHAR = 'а';
+        private static final char[] REPLACING_PAIR = {'ё', 'е'};
+        private static final int ALPHABET_SIZE = 33;
 
         private byte[] frequencies = new byte[ALPHABET_SIZE];
         private boolean isValid;
@@ -59,7 +59,7 @@ public class Anagram {
 
             for (char character : sequence) {
                 int index = character - FIRST_CHAR;
-                if (index < 0 || index > ALPHABET_SIZE) {
+                if (index < 0 || index >= ALPHABET_SIZE) {
                     isValid = false;
                     return;
                 }
